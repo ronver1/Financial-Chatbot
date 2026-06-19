@@ -4,5 +4,17 @@
 # This file consists of a function that takes in a user message, sends it to Ollama, and returns 
 # the chatbot's response
 
-# Logic: No inputs, wait for user input, send user input to chatbot, then save response as a variable, 
-# return that variable
+import requests
+
+def get_response(message):
+    url = "http://localhost:11434/api/chat"
+    data = {
+        "model": "llama3.2:3b",
+        "messages": message,
+        "stream": False
+    }
+
+    response = requests.post(url, json=data)
+    result = response.json()
+    return result["message"]["content"]
+
