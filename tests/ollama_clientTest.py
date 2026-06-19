@@ -5,6 +5,6 @@
 
 from backend.llm.ollama_client import get_response
 
-history = [{"role": "user", "content": "Hello, can you hear me?"}]
+history = [{"role": "user", "content": "Tell me about Basketball"}]
 reply = get_response(history)
 print(reply)
