@@ -3,16 +3,10 @@
 
 # This file handles authentication and registration within the database
 
-from supabase import create_client as supabase_create_client
-from database.supabase_client import supabase
+from backend.session.session_store import sessions, create_session, get_history
 
-def userRegister(username) -> bool:
-    response = supabase.table("users").select("username").eq("username", username).execute()
-    if response.data:
-        # print("Username already exists")
-        return False
-    
-    response = supabase.table("users").insert({
-        "username": username,
-    }).execute()
-    return True
+
+def userAccess(username) -> list[dict]:
+    if username not in sessions:
+        create_session(username)
+    return get_history(username)
