@@ -21,8 +21,8 @@ while True:
             destroy_session(userName)
             sys.exit()
         add_message(userName, "user", userInput)
-        result = get_response(sessions[userName])
-        sessions[userName].append({"role": "assistant", "content": result})
+        result = get_response(get_history(userName))
+        add_message(userName, "assistant", result)
         print(result)
 
     
