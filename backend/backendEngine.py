@@ -15,9 +15,9 @@ while True:
 
     while True:
         userInput = input("Chat: ")
-        if userInput == "Quit":
-            break
         if userInput == "Done":
+            break
+        if userInput == "Quit":
             destroy_session(userName)
             sys.exit()
         add_message(userName, "user", userInput)
