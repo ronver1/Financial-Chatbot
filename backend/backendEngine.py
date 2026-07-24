@@ -7,7 +7,7 @@ from backend.auth.userAuth import userAccess
 from backend.session.session_store import add_message, get_history, destroy_session, create_session
 from backend.session.session_store import sessions 
 from backend.llm.ollama_client import get_response
-import sys, requests
+import sys, requests, gc
 
 while True: 
     userName = input("Enter Username: ")
@@ -19,6 +19,7 @@ while True:
             break
         if userInput == "Quit":
             destroy_session(userName)
+            gc.collect()
             sys.exit()
         add_message(userName, "user", userInput)
         result = get_response(get_history(userName))

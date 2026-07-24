@@ -11,7 +11,8 @@ def get_response(message):
     data = {
         "model": "llama3.2:3b",
         "messages": message,
-        "stream": False
+        "stream": False,
+        "keep_alive": 0
     }
 
     response = requests.post(url, json=data)
