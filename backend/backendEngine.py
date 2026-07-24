@@ -18,7 +18,8 @@ while True:
         if userInput == "Done":
             break
         if userInput == "Quit":
-            destroy_session(userName)
+            for username in list(sessions.keys()):
+                destroy_session(username)
             gc.collect()
             sys.exit()
         add_message(userName, "user", userInput)
