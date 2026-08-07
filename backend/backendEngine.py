@@ -9,6 +9,7 @@ from backend.session.session_store import sessions
 from backend.llm.ollama_client import get_response
 import sys, requests, gc
 
+print("Hello! I am a Financial Chatbot designed for user and data security. Please proceed below")
 while True: 
     userName = input("Enter Username: ")
     userAccess(userName)
