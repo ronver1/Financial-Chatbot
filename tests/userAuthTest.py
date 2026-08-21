@@ -1,6 +1,7 @@
 # Author: Ronit Verma
 # Created on: 6.26.26
 
+# This file is not needed anymore as I decided against implementing a database
 # This file tests the userAuth.py file
 
 from backend.auth.userAuth import userRegister
